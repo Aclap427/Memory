@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap');
+#container {
+    display: flex;
+    justify-content: space-between;
+    height: 1000px;
+    margin: 0;
+}
+
+.column1 {
+    flex-basis: 10%;
+    background-image: url('https://i.imgur.com/uptaNtr.jpg?1');
+    margin: 0;
+}
+
+.column2 {
+    background-color: white;
+    flex-basis: 80%;
+    text-align: center;
+    font-family: 'Syncopate', sans-serif;
+}
+
+h1 {
+    font-family: 'Syncopate', sans-serif;
+    margin: 0;
+}
+
+#timer {
+    color: red;
+    font-size: 2em;
+}
+
+.column3 {
+    flex-basis: 10%;
+    background-image: url('https://i.imgur.com/HTYjBLv.jpg?1');
+    margin: 0;
+}
