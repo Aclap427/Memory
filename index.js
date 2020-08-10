@@ -21,6 +21,7 @@ let card11 = new Cards("imgUrl('photos/sonic.jpg')", "imgUrl('photos/blackrect.p
 let card12 = new Cards("imgUrl('photos/zelda.jpg')", "imgUrl('photos/blackrect.png')", 12);
 /*----- app's state (variables) -----*/
 let chosenCards = [];
+let totalCardsWon = [];
 /*----- cached element references -----*/
 const restartDiv = document.querySelector('.button');
 /*----- event listeners -----*/

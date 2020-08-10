@@ -10,7 +10,6 @@
 .column1 {
     flex-basis: 10%;
     background-image: url('https://i.imgur.com/uptaNtr.jpg?1');
-    margin: 0;
 }
 
 .column2 {
@@ -22,7 +21,6 @@
 
 h1 {
     font-family: 'Syncopate', sans-serif;
-    margin: 0;
 }
 
 #timer {
@@ -33,5 +31,4 @@ h1 {
 .column3 {
     flex-basis: 10%;
     background-image: url('https://i.imgur.com/HTYjBLv.jpg?1');
-    margin: 0;
 }
