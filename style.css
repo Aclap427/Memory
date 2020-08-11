@@ -28,6 +28,10 @@
  
  #timer {
      color: red;
+     font-size: 1em;
+ }
+ 
+ span {
      font-size: 2em;
  }
  

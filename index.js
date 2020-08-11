@@ -1,9 +1,9 @@
 // /*----- constants -----*/
 
-const restartDiv = document.querySelector('button');
+const restartEl = document.querySelector('button');
 const cardsEl = document.querySelectorAll('.card');
 const gridEl = document.querySelector('.grid');
-
+const timeEl = document.querySelector('#countdown');
 
 for (const cards of cardsEl) {
     cards.addEventListener('click', handleClick)
@@ -29,7 +29,7 @@ function handleClick(evt) {
 
 
 
-//restartDiv.addEventListener('click', handleStart);
+//restartEl.addEventListener('click', handleStart);
 
 
 
@@ -53,11 +53,19 @@ let ignoreClicks = false;
 // flipCardBack();
 // gameOver();();
 //
+let timeLeft = 60;
 
+function countDown() {
+    setInterval(function() {
+        if (timeLeft <= 0) {
+            clearInterval(timeLeft = 0)
+        }
+        timeEl.innerHTML = timeLeft;
+        timeLeft -= 1
+    }, 6000)
+};
 
-
-
-
+restartEl.addEventListener('click', countDown);
 
 // init();
 
