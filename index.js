@@ -36,7 +36,7 @@ function handleClick(evt) {
 // // /*----- app's state (variables) -----*/
 let chosenCards = [];
 let totalCardsWon = [];
-let ignoreClicks = false;
+
 // /*----- cached element references -----*/
 
 // /*----- event listeners -----*/
@@ -62,7 +62,7 @@ function countDown() {
         }
         timeEl.innerHTML = timeLeft;
         timeLeft -= 1
-    }, 6000)
+    }, 1000);
 };
 
 restartEl.addEventListener('click', countDown);
