@@ -2,40 +2,41 @@
 
 const restartDiv = document.querySelector('button');
 const cardsEl = document.querySelectorAll('.card');
+const gridEl = document.querySelector('.grid');
 
 
 for (const cards of cardsEl) {
     cards.addEventListener('click', handleClick)
 };
 
-
 function handleClick(evt) {
     const card = evt.target.id;
     chosenCards.push(card);
-    if (chosenCards.length === 2) {
-        for (const cards of cardsEl) {
-            cards.removeEventListener('click', handleClick);
-        }
-    }
-    if (chosenCards[0] === chosenCards[1]) {
+    if (chosenCards.length === 2 && chosenCards[0] === chosenCards[1]) {
         totalCardsWon.push(card);
+        chosenCards = [];
+    } else if (chosenCards.length === 2 && chosenCards[0] !== chosenCards[1]) {
         chosenCards = [];
     }
 };
 
-
-// handleStart();
-// restartDiv.addEventListener('click', handleStart);
-// const handleStart = () => {
-//     restartTime();
-//     chosenCards = [];
-//     totalCardsWon = [];
+// function shuffleCards() {
+//     for (let index = 0; index < 2; index++) {
+//         let x = Math.floor((Math.random() * 20));
+//         cardsEl.innerHTML += (imgUrl = "photos/${x}.jpeg");
+//     }
 // };
+
+
+
+//restartDiv.addEventListener('click', handleStart);
+
 
 
 // // /*----- app's state (variables) -----*/
 let chosenCards = [];
 let totalCardsWon = [];
+let ignoreClicks = false;
 // /*----- cached element references -----*/
 
 // /*----- event listeners -----*/
@@ -52,3 +53,19 @@ let totalCardsWon = [];
 // flipCardBack();
 // gameOver();();
 //
+
+
+
+
+
+
+// init();
+
+// function init() {
+//     //initialize all state and call render
+//     gameIsLive = true;
+//     chosenCards = [];
+//     totalCardsWon = [];
+//     flipCardBack();
+//     shuffleCards();
+// };
