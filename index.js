@@ -18,7 +18,8 @@ function handleClick(evt) {
         }
     }
     if (chosenCards[0] === chosenCards[1]) {
-        console.log("match!");
+        totalCardsWon.push(card);
+        chosenCards = [];
     }
 };
 
@@ -46,9 +47,8 @@ let totalCardsWon = [];
 // shuffle();
 // checkTimer();
 // render();
-// compareCard();
+// 
 // updateScore();
 // flipCardBack();
 // gameOver();();
-// flipCardBack();
-// gameOver();
+//
