@@ -12,9 +12,15 @@ for (const cards of cardsEl) {
 function handleClick(evt) {
     const card = evt.target.id;
     chosenCards.push(card);
-}
-
-
+    if (chosenCards.length === 2) {
+        for (const cards of cardsEl) {
+            cards.removeEventListener('click', handleClick);
+        }
+    }
+    if (chosenCards[0] === chosenCards[1]) {
+        console.log("match!");
+    }
+};
 
 
 // handleStart();
@@ -42,5 +48,7 @@ let totalCardsWon = [];
 // render();
 // compareCard();
 // updateScore();
+// flipCardBack();
+// gameOver();();
 // flipCardBack();
 // gameOver();
