@@ -23,7 +23,9 @@ init();
 function countDown() {
     setInterval(function() {
         if (timeLeft <= 0) {
-            clearInterval(timeLeft = 0)
+            clearInterval(timeLeft = 0);
+            lock = true;
+            document.getElementById("timer").innerHTML = "Out of Time! You Lose!"
         }
         timeEl.innerHTML = timeLeft;
         timeLeft -= 1
@@ -44,7 +46,7 @@ function flip() {
 }
 //check match
 function check() {
-    var isMatch = firstCard.dataset.image === secondCard.dataset.image;
+    let isMatch = firstCard.dataset.image === secondCard.dataset.image;
     isMatch ? success() : fail();
 }
 //if match dont let click again  run reset func
@@ -53,6 +55,7 @@ function success() {
     secondCard.removeEventListener("click", flip);
     reset();
 }
+
 // if fail, lock for a second and flip back
 function fail() {
     lock = true;
