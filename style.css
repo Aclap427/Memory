@@ -48,6 +48,7 @@ span {
 
 button {
     cursor: pointer;
+    display: none;
 }
 
 .grid {

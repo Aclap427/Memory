@@ -13,7 +13,22 @@ const timeEl = document.querySelector('#countdown');
 cardsEl.forEach(card => card.addEventListener("click", flip));
 restartEl.addEventListener('click', countDown);
 /*----- functions -----*/
+//initialize
+//timer countdown one second at a time. when @ 0 stop
+function init() {
+    countDown();
+}
+init();
 
+function countDown() {
+    setInterval(function() {
+        if (timeLeft <= 0) {
+            clearInterval(timeLeft = 0)
+        }
+        timeEl.innerHTML = timeLeft;
+        timeLeft -= 1
+    }, 1000);
+};
 //flip card
 function flip() {
     if (lock) return;
@@ -52,16 +67,7 @@ function reset() {
     [isFlipped, lock] = [false, false];
     [firstCard, secondCard] = [null, null];
 }
-//timer countdown one second at a time. when @ 0 stop
-function countDown() {
-    setInterval(function() {
-        if (timeLeft <= 0) {
-            clearInterval(timeLeft = 0)
-        }
-        timeEl.innerHTML = timeLeft;
-        timeLeft -= 1
-    }, 1000);
-};
+
 //shuffle through all 20 cards randomly.
 (function shuffle() {
     cardsEl.forEach(card => {
