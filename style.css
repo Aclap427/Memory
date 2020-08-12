@@ -2,17 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap');
 * {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
     display: flex;
     justify-content: space-around;
-    justify-items: center;
-    height: 100%;
-    width: 100%;
-    margin: 0;
     font-family: 'Syncopate', sans-serif;
 }
 
@@ -29,12 +24,14 @@ h1 {
 p {
     font-size: .75em;
     text-align: center;
+    margin: 20px;
 }
 
 #timer {
     color: red;
     font-size: 1em;
     text-align: center;
+    margin: 20px;
 }
 
 span {
@@ -49,6 +46,20 @@ span {
 button {
     cursor: pointer;
     display: none;
+}
+
+#column1 {
+    width: 150px;
+    background-image: url("https://i.imgur.com/uptaNtr.jpg?1");
+}
+
+#column2 {
+    padding: 50px;
+}
+
+#column3 {
+    width: 150px;
+    background-image: url("https://i.imgur.com/HTYjBLv.jpg?1");
 }
 
 .grid {
