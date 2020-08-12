@@ -1,60 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="index.js" defer></script>
-
-    <title>A Game of Memory</title>
+    <title> A Game of Memory </title>
 </head>
 
 <body>
+
     <div id="container">
-        <div class="column1">
+        <div id="header">
+            <h1>M E M O R Y</h1>
+            <p>-Put your memory to the test and find all the matches before times runs out!-</p>
         </div>
-        <div class="column2">
-            <h1> M E M O R Y </h1>
-            <p> -Put your memory to the test and find all the matches before time runs out!-</p>
-            <div id="timer"> <span id="countdown">60</span>s</div>
-            <button> START </button>
-            <div class="grid">
-
-                <img src="./photos/batman.jpg" id="CardZero" width="120px" height="120px" class="card">
-                <img src="./photos/batman.jpg" id="CardZero" width="120px" height="120px" class="card">
-
-                <img src="./photos/bbhead.jpg" id="card1" width="120px" height="120px" class="card">
-                <img src="./photos/bbhead.jpg" id="card1" width="120px" height="120px" class="card">
-
-                <img src="./photos/bjuice.jpg" id="card2" width="120px" height="120px" class="card">
-                <img src="./photos/bjuice.jpg" id="card2" width="120px" height="120px" class="card">
-
-                <img src="./photos/gbumps.jpg" id="card3" width="120px" height="120px" class="card">
-                <img src="./photos/gbumps.jpg" id="card3" width="120px" height="120px" class="card">
-
-                <img src="./photos/gbusters.jpg " id="card4" width="120px " height="120px " class="card">
-                <img src="./photos/gbusters.jpg " id="card4" width="120px " height="120px " class="card">
-
-                <img src="./photos/pokemon.jpg " id="card5" width="120px " height="120px " class="card">
-                <img src="./photos/pokemon.jpg " id="card5" width="120px " height="120px " class="card">
-
-                <img src="./photos/prangers.jpg " id="card6" width="120px " height="120px " class="card">
-                <img src="./photos/prangers.jpg " id="card6" width="120px " height="120px " class="card">
-
-                <img src="./photos/sfighter.png " id="card7" width="120px " height="120px " class="card">
-                <img src="./photos/sfighter.png " id="card7" width="120px " height="120px " class="card">
-
-                <img src="./photos/sonic.jpg " id="card8" width="120px " height="120px " class="card">
-                <img src="./photos/sonic.jpg " id="card8" width="120px " height="120px " class="card">
-
-                <img src="./photos/zelda.png " id="card9" width="120px " height="120px " class="card">
-                <img src="./photos/zelda.png " id="card9" width="120px " height="120px " class="card">
+        <div class="gameContainer">
+            <div class="card" data-image="batman">
+                <img src="./photos/batman.jpg" class="front">
+                <img src="photos/backCard.jpg" class="back">
             </div>
+            <div class="card" data-image="batman">
+                <img src="./photos/batman.jpg" class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="bbhead">
+                <img src="./photos/bbhead.jpg" class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="bbhead">
+                <img src="./photos/bbhead.jpg" class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="bjuice">
+                <img src="./photos/bjuice.jpg" class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="bjuice">
+                <img src="./photos/bjuice.jpg" class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="gbumps">
+                <img src="./photos/gbumps.jpg" class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="gbumps">
+                <img src="./photos/gbumps.jpg" class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="gbusters">
+                <img src="./photos/gbusters.jpg" class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="gbusters">
+                <img src="./photos/gbusters.jpg" class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="pokemon">
+                <img src="./photos/pokemon.jpg " class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="pokemon">
+                <img src="./photos/pokemon.jpg " class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="prangers">
+                <img src="./photos/prangers.jpg " class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="prangers">
+                <img src="./photos/prangers.jpg " class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="sfighter">
+                <img src="./photos/sfighter.png " class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="sfighter">
+                <img src="./photos/sfighter.png " class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="sonic">
+                <img src="./photos/sonic.jpg " class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="sonic">
+                <img src="./photos/sonic.jpg " class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="zelda">
+                <img src="./photos/zelda.png " class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+            <div class="card" data-image="zelda">
+                <img src="./photos/zelda.png " class="front">
+                <img src="photos/backCard.jpg" class="back">
+            </div>
+
         </div>
-    </div>
-    <div class="column3"></div>
+
+        <div id="timer"> <span id="countdown">60</span>s</div>
+        <div class="button-container"><button> START </button></div>
+
     </div>
 </body>
 

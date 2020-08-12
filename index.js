@@ -1,60 +1,58 @@
-// /*----- constants -----*/
+/*----- constants -----*/
 
-const restartEl = document.querySelector('button');
-const cardsEl = document.querySelectorAll('.card');
-const gridEl = document.querySelector('.grid');
-const timeEl = document.querySelector('#countdown');
-
-for (const cards of cardsEl) {
-    cards.addEventListener('click', handleClick)
-};
-
-function handleClick(evt) {
-    const card = evt.target.id;
-    chosenCards.push(card);
-    if (chosenCards.length === 2 && chosenCards[0] === chosenCards[1]) {
-        totalCardsWon.push(card);
-        chosenCards = [];
-    } else if (chosenCards.length === 2 && chosenCards[0] !== chosenCards[1]) {
-        chosenCards = [];
-    }
-};
-
-// function shuffleCards() {
-//     for (let index = 0; index < 2; index++) {
-//         let x = Math.floor((Math.random() * 20));
-//         cardsEl.innerHTML += (imgUrl = "photos/${x}.jpeg");
-//     }
-// };
-
-
-
-//restartEl.addEventListener('click', handleStart);
-
-
-
-// // /*----- app's state (variables) -----*/
-let chosenCards = [];
-let totalCardsWon = [];
-
-// /*----- cached element references -----*/
-
-// /*----- event listeners -----*/
-
-//flipCard.addEventListener('click', handleFlipCard);
-
-// /*----- functions -----*/
-// init();
-// shuffle();
-// checkTimer();
-// render();
-// 
-// updateScore();
-// flipCardBack();
-// gameOver();();
-//
+/*----- app's state (variables) -----*/
+let isFlipped = false;
+let firstCard, secondCard;
+let lock = false;
 let timeLeft = 60;
+/*----- cached element references -----*/
+const cardsEl = document.querySelectorAll(".card");
+const restartEl = document.querySelector('button');
+const timeEl = document.querySelector('#countdown');
+/*----- event listeners -----*/
+cardsEl.forEach(card => card.addEventListener("click", flip));
+restartEl.addEventListener('click', countDown);
+/*----- functions -----*/
 
+//flip card
+function flip() {
+    if (lock) return;
+    if (this === firstCard) return;
+    this.classList.add("flip");
+    if (!isFlipped) {
+        isFlipped = true;
+        firstCard = this;
+        return;
+    }
+    secondCard = this;
+    check();
+}
+//check match
+function check() {
+    var isMatch = firstCard.dataset.image === secondCard.dataset.image;
+    isMatch ? success() : fail();
+}
+//if match dont let click again  run reset func
+function success() {
+    firstCard.removeEventListener("click", flip);
+    secondCard.removeEventListener("click", flip);
+    reset();
+}
+// if fail, lock for a second and flip back
+function fail() {
+    lock = true;
+    setTimeout(() => {
+        firstCard.classList.remove("flip");
+        secondCard.classList.remove("flip");
+        reset();
+    }, 1000);
+}
+//resets and lets you pick 2 more cards
+function reset() {
+    [isFlipped, lock] = [false, false];
+    [firstCard, secondCard] = [null, null];
+}
+//timer countdown one second at a time. when @ 0 stop
 function countDown() {
     setInterval(function() {
         if (timeLeft <= 0) {
@@ -64,16 +62,10 @@ function countDown() {
         timeLeft -= 1
     }, 1000);
 };
-
-restartEl.addEventListener('click', countDown);
-
-// init();
-
-// function init() {
-//     //initialize all state and call render
-//     gameIsLive = true;
-//     chosenCards = [];
-//     totalCardsWon = [];
-//     flipCardBack();
-//     shuffleCards();
-// };
+//shuffle through all 20 cards randomly.
+(function shuffle() {
+    cardsEl.forEach(card => {
+        var position = Math.floor(Math.random() * 20);
+        card.style.order = position;
+    });
+})();
