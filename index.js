@@ -4,7 +4,7 @@
 let isFlipped = false;
 let firstCard, secondCard;
 let lock = false;
-let timeLeft = 60;
+let timeLeft = 5;
 /*----- cached element references -----*/
 const cardsEl = document.querySelectorAll(".card");
 const restartEl = document.querySelector('button');
@@ -24,6 +24,8 @@ function countDown() {
     setInterval(function() {
         if (timeLeft <= 0) {
             clearInterval(timeLeft = 0)
+            lock = true;
+            document.getElementById('timer').innerHTML = "Times Up! You Lose!";
         }
         timeEl.innerHTML = timeLeft;
         timeLeft -= 1
