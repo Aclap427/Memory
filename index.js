@@ -23,20 +23,10 @@ init();
 function countDown() {
     setInterval(function() {
         if (timeLeft <= 0) {
-<<<<<<< HEAD
-            clearInterval(timeLeft = 0);
-            lock = true;
-            document.getElementById("timer").innerHTML = "Out of Time! You Lose!"
-=======
             clearInterval(timeLeft = 0)
             lock = true;
-<<<<<<< HEAD
-            document.getElementById("overlayLose").style.display = "block";
->>>>>>> master
-=======
             if (cardsWonArray.length !== 20)
                 document.getElementById("overlayLose").style.display = "block";
->>>>>>> master
         }
         timeEl.innerHTML = timeLeft;
         timeLeft -= 1
@@ -72,10 +62,6 @@ function success() {
     reset();
 }
 
-<<<<<<< HEAD
-// if fail, lock for a second and flip back
-=======
->>>>>>> master
 function fail() {
     lock = true;
     setTimeout(() => {
