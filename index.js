@@ -77,7 +77,7 @@ function reset() {
 
 (function shuffle() {
     cardsEl.forEach(card => {
-        var position = Math.floor(Math.random() * 20);
+        let position = Math.floor(Math.random() * 20);
         card.style.order = position;
     });
 })();
