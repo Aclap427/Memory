@@ -5,12 +5,10 @@ let lock = false;
 let timeLeft = 60;
 
 const cardsEl = document.querySelectorAll(".card");
-const restartEl = document.querySelector('button');
 const timeEl = document.querySelector('#countdown');
 const countdownEl = document.getElementById('timer');
-
 cardsEl.forEach(card => card.addEventListener("click", flip));
-restartEl.addEventListener('click', countDown);
+
 
 function init() {
     document.getElementById("overlayWin").style.display = "none";
