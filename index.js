@@ -3,12 +3,14 @@
 /*----- app's state (variables) -----*/
 let isFlipped = false;
 let firstCard, secondCard;
+let cardsWonArray = [];
 let lock = false;
 let timeLeft = 60;
 /*----- cached element references -----*/
 const cardsEl = document.querySelectorAll(".card");
 const restartEl = document.querySelector('button');
 const timeEl = document.querySelector('#countdown');
+const countdownEl = document.getElementById('timer');
 /*----- event listeners -----*/
 cardsEl.forEach(card => card.addEventListener("click", flip));
 restartEl.addEventListener('click', countDown);
@@ -16,6 +18,8 @@ restartEl.addEventListener('click', countDown);
 //initialize
 //timer countdown one second at a time. when @ 0 stop
 function init() {
+    document.getElementById("overlayWin").style.display = "none";
+    document.getElementById("overlayLose").style.display = "none";
     countDown();
 }
 init();
@@ -23,9 +27,15 @@ init();
 function countDown() {
     setInterval(function() {
         if (timeLeft <= 0) {
+<<<<<<< HEAD
             clearInterval(timeLeft = 0);
             lock = true;
             document.getElementById("timer").innerHTML = "Out of Time! You Lose!"
+=======
+            clearInterval(timeLeft = 0)
+            lock = true;
+            document.getElementById("overlayLose").style.display = "block";
+>>>>>>> master
         }
         timeEl.innerHTML = timeLeft;
         timeLeft -= 1
@@ -53,6 +63,11 @@ function check() {
 function success() {
     firstCard.removeEventListener("click", flip);
     secondCard.removeEventListener("click", flip);
+    cardsWonArray.push(firstCard, secondCard);
+    if (cardsWonArray.length === 20) {
+        countdownEl.style.visibility = 'hidden';
+        document.getElementById("overlayWin").style.display = "block";
+    }
     reset();
 }
 
