@@ -5,7 +5,7 @@ let isFlipped = false;
 let firstCard, secondCard;
 let cardsWonArray = [];
 let lock = false;
-let timeLeft = 90;
+let timeLeft = 60;
 /*----- cached element references -----*/
 const cardsEl = document.querySelectorAll(".card");
 const restartEl = document.querySelector('button');
@@ -18,7 +18,8 @@ restartEl.addEventListener('click', countDown);
 //initialize
 //timer countdown one second at a time. when @ 0 stop
 function init() {
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("overlayWin").style.display = "none";
+    document.getElementById("overlayLose").style.display = "none";
     countDown();
 }
 init();
@@ -28,7 +29,7 @@ function countDown() {
         if (timeLeft <= 0) {
             clearInterval(timeLeft = 0)
             lock = true;
-            countdownEl.innerHTML = "Times Up! You Lose!";
+            document.getElementById("overlayLose").style.display = "block";
         }
         timeEl.innerHTML = timeLeft;
         timeLeft -= 1
@@ -59,7 +60,7 @@ function success() {
     cardsWonArray.push(firstCard, secondCard);
     if (cardsWonArray.length === 20) {
         countdownEl.style.visibility = 'hidden';
-        document.getElementById("overlay").style.display = "block";
+        document.getElementById("overlayWin").style.display = "block";
     }
     reset();
 }

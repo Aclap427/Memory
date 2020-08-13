@@ -113,7 +113,7 @@ button {
     transform: rotateY(180deg);
 }
 
-#overlay {
+#overlayWin {
     position: fixed;
     width: 620px;
     height: 500px;
@@ -126,7 +126,29 @@ button {
     cursor: pointer;
 }
 
-#text {
+#textWin {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 3em;
+    color: red;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+#overlayLose {
+    position: fixed;
+    width: 620px;
+    height: 500px;
+    border-radius: 20px;
+    border: dotted 10px yellow;
+    background-color: blue;
+    opacity: 70%;
+    z-index: 2;
+    text-align: center;
+    cursor: pointer;
+}
+
+#textLose {
     font-family: 'Syncopate', sans-serif;
     font-size: 3em;
     color: red;
