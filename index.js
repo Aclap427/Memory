@@ -1,18 +1,17 @@
-/*----- app's state (variables) -----*/
 let isFlipped = false;
 let firstCard, secondCard;
 let cardsWonArray = [];
 let lock = false;
-let timeLeft = 65;
-/*----- cached element references -----*/
+let timeLeft = 60;
+
 const cardsEl = document.querySelectorAll(".card");
 const restartEl = document.querySelector('button');
 const timeEl = document.querySelector('#countdown');
 const countdownEl = document.getElementById('timer');
-/*----- event listeners -----*/
+
 cardsEl.forEach(card => card.addEventListener("click", flip));
 restartEl.addEventListener('click', countDown);
-/*----- functions -----*/
+
 function init() {
     document.getElementById("overlayWin").style.display = "none";
     document.getElementById("overlayLose").style.display = "none";
