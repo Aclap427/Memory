@@ -1,11 +1,9 @@
-/*----- constants -----*/
-
 /*----- app's state (variables) -----*/
 let isFlipped = false;
 let firstCard, secondCard;
 let cardsWonArray = [];
 let lock = false;
-let timeLeft = 60;
+let timeLeft = 65;
 /*----- cached element references -----*/
 const cardsEl = document.querySelectorAll(".card");
 const restartEl = document.querySelector('button');
@@ -15,8 +13,6 @@ const countdownEl = document.getElementById('timer');
 cardsEl.forEach(card => card.addEventListener("click", flip));
 restartEl.addEventListener('click', countDown);
 /*----- functions -----*/
-//initialize
-//timer countdown one second at a time. when @ 0 stop
 function init() {
     document.getElementById("overlayWin").style.display = "none";
     document.getElementById("overlayLose").style.display = "none";
@@ -29,13 +25,14 @@ function countDown() {
         if (timeLeft <= 0) {
             clearInterval(timeLeft = 0)
             lock = true;
-            document.getElementById("overlayLose").style.display = "block";
+            if (cardsWonArray.length !== 20)
+                document.getElementById("overlayLose").style.display = "block";
         }
         timeEl.innerHTML = timeLeft;
         timeLeft -= 1
     }, 1000);
 };
-//flip card
+
 function flip() {
     if (lock) return;
     if (this === firstCard) return;
@@ -48,12 +45,12 @@ function flip() {
     secondCard = this;
     check();
 }
-//check match
+
 function check() {
     var isMatch = firstCard.dataset.image === secondCard.dataset.image;
     isMatch ? success() : fail();
 }
-//if match dont let click again  run reset func
+
 function success() {
     firstCard.removeEventListener("click", flip);
     secondCard.removeEventListener("click", flip);
@@ -64,7 +61,7 @@ function success() {
     }
     reset();
 }
-// if fail, lock for a second and flip back
+
 function fail() {
     lock = true;
     setTimeout(() => {
@@ -73,13 +70,12 @@ function fail() {
         reset();
     }, 1000);
 }
-//resets and lets you pick 2 more cards
+
 function reset() {
     [isFlipped, lock] = [false, false];
     [firstCard, secondCard] = [null, null];
 }
 
-//shuffle through all 20 cards randomly.
 (function shuffle() {
     cardsEl.forEach(card => {
         var position = Math.floor(Math.random() * 20);
