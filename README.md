@@ -11,7 +11,7 @@ This game was created using HTML/ CSS / Javascript and my love for memorabilia f
 
 **Getting Started**
 
-Click and Play --> (https://www.aclap.github.io/memory)
+Click and Play --> (https://aclap427.github.io/Memory/)
 When the game starts all 20 cards will be face down, you can click on two at a time and if they are a match, they will stay face up. If they do not match, they will flip back. The object of the game is to find all the matches as soon as possible.
 You have 60 seconds to find 10 pairs. Have fun!
 
